@@ -7,10 +7,7 @@ RUN useradd uremote && \
     mkdir /home/uremote/.ssh && \
     chmod -R 700 /home/uremote/
 
-COPY remote-key.pub /home/uremote/.ssh/authorized_keys
-
-RUN chown -R uremote:uremote /home/uremote && \
-    chmod 600 /home/uremote/.ssh/authorized_keys
+RUN chown -R uremote:uremote /home/uremote 
 
 RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
 
