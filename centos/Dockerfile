@@ -11,5 +11,11 @@ RUN chown -R uremote:uremote /home/uremote
 
 RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
 
+RUN yum -y install mysql
+
+RUN yum -y install epel-release && \
+    yum -y install python-pip && \
+    pip install awscli
+
 CMD /usr/sbin/sshd -D
  
